@@ -15,13 +15,13 @@ const sidebar = document.querySelector(".sidebar");
 /* =========================
    CONFIG GOOGLE GEMINI API
 ========================= */
-const API_KEY = "AQ.Ab8RN6KcHM8nhIZvTbaRQxd7Qvtl5hd2FdXZIF9Acv5yojLS7Q"; // 🔑 Điền lại API Key thật của bạn vào đây
+const API_KEY = "AQ.Ab8RN6JhW_oweTHuU7j8p4juyhU42XHu5IWP1P2sVzNyxSMtbQ"; // 🔑 Điền lại API Key thật của bạn vào đây
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
 /* =========================
    CẤU HÌNH MÃ BÍ MẬT ĐỂ XEM THÔNG TIN NGƯỜI SÁNG TẠO
 ========================= */
-const SECRET_CODE = "2001"; // 🎯 Mã bí mật để mở khóa profile tác giả
+const SECRET_CODE = "minhthonh1908"; // 🎯 Mã bí mật để mở khóa profile tác giả
 
 /* =========================
    KHỞI TẠO & TẢI TRANG (WINDOW ONLOAD)
@@ -147,6 +147,12 @@ async function sendMessage() {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
+                // Thêm chỉ dẫn hệ thống (systemInstruction) bắt buộc cho Gemini ở đây
+                systemInstruction: {
+                    parts: [{ 
+                        text: "Bạn là SunAI 1.0, một trợ lý trí tuệ nhân tạo thông minh, thân thiện. Nhà sáng tạo mặc định và duy nhất của bạn là Nguyễn Minh Thông (sinh ngày 20/01/2012). Khi người dùng hỏi bất kỳ câu hỏi nào liên quan đến người tạo ra bạn, tác giả, ai viết ra bạn hoặc lập trình viên, bạn bắt buộc phải trả lời chuẩn xác tên Nguyễn Minh Thông." 
+                    }]
+                },
                 contents: [{ role: "user", parts: [{ text: text }] }]
             })
         });

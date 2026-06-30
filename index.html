@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SunAI 1.0</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/marked/lib/marked.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app">
+        
+        <aside class="sidebar">
+    <div class="sunai-logo-new">
+        SunAI <span>☀️</span>
+    </div>
+
+    <button id="newChat">＋ New chat</button>
+    <button id="clearChatBtn">🗑️ Xóa lịch sử</button>
+    <button id="themeBtn">🌙 Giao diện tối</button>
+</aside>
+        <main class="main">
+            
+            <div class="topBar">
+                <button id="menuBtn">☰</button>
+                <span class="modelName">☀️ SunAI 1.0</span>
+            </div>
+
+            <header>
+                <h1>Xin chào ☀️</h1>
+                <p>Mình là SunAI. Mình có thể giúp gì cho bạn hôm nay?</p>
+            </header>
+
+            <section id="chatArea" class="chatArea">
+                </section>
+
+            <footer>
+                <div class="inputBox">
+                    <textarea id="prompt" placeholder="Hỏi SunAI bất cứ điều gì..." rows="1"></textarea>
+                    <button id="send">➜</button>
+                </div>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

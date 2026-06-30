@@ -1,0 +1,1748 @@
+/* ==========================================
+   SUNAI v1 - STYLE.CSS (PHẦN 2A)
+========================================== */
+
+:root{
+
+    --bg:#121212;
+    --sidebar:#1b1b1b;
+    --card:#242424;
+    --hover:#313131;
+
+    --text:#ffffff;
+    --sub:#b8b8b8;
+
+    --primary:#FFB000;
+    --secondary:#FF8C00;
+    --accent:#FFD54A;
+
+    --border:#383838;
+
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    font-family:"Google Sans",sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+}
+
+/* ========================= */
+
+.app{
+
+    display:flex;
+
+    width:100vw;
+
+    height:100vh;
+
+}
+
+/* =========================
+        SIDEBAR
+========================= */
+
+.sidebar{
+
+    width:280px;
+
+    background:var(--sidebar);
+
+    border-right:1px solid var(--border);
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/* ========================= */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:22px;
+
+}
+
+/* ========================= */
+
+.sun-icon{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(circle,
+
+    #FFF8A8,
+
+    #FFD54A 35%,
+
+    #FFB000 70%,
+
+    #FF8C00);
+
+    box-shadow:
+
+    0 0 18px rgba(255,180,0,.55),
+
+    0 0 45px rgba(255,140,0,.35);
+
+    animation:sunPulse 3s ease infinite;
+
+}
+
+@keyframes sunPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ========================= */
+
+.logo-text{
+
+    font-size:26px;
+
+    font-weight:700;
+
+    background:linear-gradient(
+
+    90deg,
+
+    #FFF176,
+
+    #FFD54A,
+
+    #FFB300,
+
+    #FF9800
+
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+/* ========================= */
+
+#newChat{
+
+    margin:18px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    background:linear-gradient(
+
+    135deg,
+
+    #FFB300,
+
+    #FF8C00
+
+    );
+
+    transition:.25s;
+
+}
+
+#newChat:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+
+    0 10px 25px rgba(255,170,0,.35);
+
+}
+
+/* ========================= */
+
+.history{
+
+    flex:1;
+
+    overflow:auto;
+
+    padding:15px;
+
+}
+
+.history::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.history::-webkit-scrollbar-thumb{
+
+    background:#555;
+
+    border-radius:20px;
+
+}
+
+/* ========================= */
+
+.chat-item{
+
+    padding:13px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    color:var(--sub);
+
+    transition:.25s;
+
+    margin-bottom:8px;
+
+}
+
+.chat-item:hover{
+
+    background:var(--hover);
+
+    color:white;
+
+}
+
+/* ========================= */
+
+.bottom{
+
+    padding:18px;
+
+}
+
+.bottom button{
+
+    width:100%;
+
+    padding:13px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:var(--card);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.bottom button:hover{
+
+    background:var(--hover);
+
+}
+/* ==========================================
+   SUNAI - PART 2B (FIXED DARK THEME)
+========================================== */
+
+/* =========================
+   CHAT CONTAINER
+========================= */
+
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: var(--bg);
+    overflow: hidden;
+}
+
+/* =========================
+   CHAT HEADER
+========================= */
+
+.chat-header {
+    padding: 14px 20px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: #111;
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+
+/* =========================
+   MESSAGES AREA
+========================= */
+
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Scrollbar */
+.chat-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: var(--hover);
+    border-radius: 20px;
+}
+
+/* =========================
+   MESSAGE BUBBLES
+========================= */
+
+.message {
+    max-width: 75%;
+    padding: 12px 16px;
+    border-radius: 16px;
+    line-height: 1.5;
+    font-size: 15px;
+    animation: fadeIn 0.2s ease;
+    word-wrap: break-word;
+}
+
+/* AI message */
+.message.bot {
+    align-self: flex-start;
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-bottom-left-radius: 6px;
+}
+
+/* USER message */
+.message.user {
+    align-self: flex-end;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #111;
+    font-weight: 600;
+    border-bottom-right-radius: 6px;
+}
+
+/* =========================
+   INPUT AREA
+========================= */
+
+.chat-input-area {
+    display: flex;
+    padding: 12px;
+    background: var(--sidebar);
+    border-top: 1px solid var(--border);
+    gap: 10px;
+}
+
+/* Input */
+.chat-input-area input {
+    flex: 1;
+    padding: 12px 14px;
+    border-radius: 25px;
+    border: 1px solid var(--border);
+    outline: none;
+    font-size: 14px;
+    background: var(--card);
+    color: var(--text);
+    transition: 0.2s;
+}
+
+.chat-input-area input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 176, 0, 0.2);
+}
+
+/* Button */
+.chat-input-area button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #111;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.chat-input-area button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(255, 140, 0, 0.35);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ========================================================
+   BỔ SUNG ĐỂ SỬA LỖI CUỘN CHUỘT CHO SUNAI (DÁN XUỐNG DƯỚI CÙNG)
+   ======================================================== */
+
+/* Cấu hình lại khung bao ngoài cùng để cố định màn hình */
+.app {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* Khóa không cho toàn bộ trang web cuộn lung tung */
+}
+
+/* Định hình vùng nội dung chính bên phải */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* Khóa vùng main, chỉ cho phép vùng chatArea bên trong cuộn */
+    position: relative;
+    background-color: #1e1e1e; /* Màu nền tối (bạn có thể đổi màu tùy ý) */
+}
+
+/* Định hình khu vực chứa tin nhắn chat */
+.chatArea {
+    flex: 1;                  /* Tự động chiếm trọn khoảng trống ở giữa */
+    overflow-y: auto;         /* KÍCH HOẠT: Bật thanh cuộn dọc bằng chuột khi tin nhắn tràn màn hình */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: calc(100vh - 160px); /* Giới hạn chiều cao để không đè mất ô nhập liệu phía dưới */
+}
+
+/* Làm thanh cuộn nhỏ gọn, màu vàng cam mặt trời hợp với SunAI */
+.chatArea::-webkit-scrollbar {
+    width: 6px;
+}
+.chatArea::-webkit-scrollbar-track {
+    background: transparent;
+}
+.chatArea::-webkit-scrollbar-thumb {
+    background: #ff9500; /* Màu cam mặt trời */
+    border-radius: 10px;
+}
+/* ========================================================
+   GIAO DIỆN SUNAI TÔNG TRẮNG / SÁNG (PHONG CÁCH GEMINI)
+   ======================================================== */
+
+/* Toàn bộ nền ứng dụng chuyển sang màu trắng/bạc sáng */
+.app {
+    background-color: #f0f4f9; /* Màu nền xám trắng nhạt cực dịu mắt của Gemini */
+    color: #1f1f1f;            /* Chữ màu xám đen để dễ đọc */
+}
+
+/* Thanh menu bên trái (Sidebar) chuyển sang màu trắng xám nhẹ */
+.sidebar {
+    background-color: #f0f4f9;
+    border-right: 1px solid #e3e3e3; /* Đường viền mảnh chia đôi màn hình */
+}
+
+/* Nút "Cuộc trò chuyện mới" chuẩn phong cách tối giản */
+#newChat {
+    background-color: #e9eef6;
+    color: #1f1f1f;
+    border: 1px solid #c4c7c5;
+    transition: background 0.2s;
+}
+#newChat:hover {
+    background-color: #dde3ea; /* Đổi màu khi di chuột vào */
+}
+
+/* Vùng nội dung chính bên phải */
+.main {
+    background-color: #ffffff; /* Nền trắng tinh khiết */
+    color: #1f1f1f;
+}
+
+/* Thanh thanh trên (TopBar) */
+.topBar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0f4f9;
+}
+
+/* Tiêu đề "Xin chào" giữa màn hình */
+header h1 {
+    background: linear-gradient(45deg, #ff9500, #ff5e00); /* Chữ "Xin chào" đổi màu cam gradient rực rỡ */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem;
+}
+
+/* Khung chứa tin nhắn chat */
+.chatArea {
+    background-color: #ffffff;
+}
+
+/* BONG BÓNG TIN NHẮN (BƯỚC QUAN TRỌNG NHẤT) */
+
+/* 1. Tin nhắn của Người dùng (User): Bo góc, nằm lùi về bên phải, nền xám sáng nhẹ */
+.message.user {
+    background-color: #e9eef6;
+    color: #1f1f1f;
+    align-self: flex-end;
+    max-width: 70%;
+    padding: 12px 16px;
+    border-radius: 18px 18px 4px 18px; /* Bo góc kiểu hiện đại */
+}
+
+/* 2. Tin nhắn của AI (Bot): Nền trắng, hiện chữ trực tiếp, căn lề trái */
+.message.bot {
+    background-color: transparent;
+    color: #1f1f1f;
+    align-self: flex-start;
+    max-width: 85%;
+    padding: 12px 0; /* Không cần khung nền, để chữ chạy tự do như Gemini */
+}
+
+/* Ô nhập liệu phía dưới đáy màn hình */
+footer {
+    background-color: #ffffff;
+}
+
+.inputBox {
+    background-color: #f0f4f9; /* Ô nhập liệu màu xám bo tròn */
+    border: 1px solid transparent;
+    border-radius: 28px;
+    padding: 8px 16px;
+}
+
+.inputBox textarea {
+    background: transparent;
+    color: #1f1f1f;
+}
+
+/* Nút gửi tin nhắn hình tròn màu cam mặt trời làm điểm nhấn */
+#send {
+    background-color: #ff9500;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+#send:hover {
+    background-color: #e08400;
+}
+/* ========================================================
+   SỬA LỖI TRÀN KHUNG CHAT VÀ RỚT NÚT GỬI (ĐÃ TỐI ƯU)
+   ======================================================== */
+
+/* 1. Giới hạn lại vùng chat Area để tin nhắn không bao giờ tràn lề phải */
+.chatArea {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: calc(100vh - 160px);
+    width: 100%;           /* Ép chiều rộng chuẩn 100% */
+    box-sizing: border-box; /* Đảm bảo padding không làm nở khung ra ngoài màn hình */
+}
+
+/* 2. Sửa tin nhắn của BOT: Giới hạn chiều rộng tối đa và bo gọn gàng */
+.message.bot {
+    background-color: transparent;
+    color: #1f1f1f;
+    align-self: flex-start;
+    max-width: 85%;        /* Đảm bảo tin nhắn dài không bao giờ chạm mép phải */
+    width: fit-content;
+    padding: 12px 0;
+    box-sizing: border-box;
+    word-wrap: break-word; /* Tự động xuống dòng khi gặp từ quá dài */
+}
+
+/* 3. SỬA LỖI RỚT NÚT: Ép ô inputBox phải xếp theo hàng ngang và căn giữa */
+.inputBox {
+    display: flex;         /* Sử dụng Flexbox để xếp ngang các phần tử con */
+    align-items: center;   /* Căn giữa nút gửi và ô nhập theo chiều dọc */
+    background-color: #f0f4f9; 
+    border-radius: 28px;
+    padding: 8px 16px;
+    gap: 10px;             /* Tạo khoảng cách nhỏ giữa ô gõ chữ và nút gửi */
+    width: 100%;           /* Để ô nhập co giãn theo footer */
+    box-sizing: border-box;
+}
+
+/* 4. Định hình lại ô textarea để nhường chỗ cho nút gửi */
+.inputBox textarea {
+    flex: 1;               /* Chiếm toàn bộ khoảng trống bên trái */
+    background: transparent;
+    color: #1f1f1f;
+    border: none;
+    outline: none;
+    resize: none;          /* Tắt tính năng kéo giãn thủ công của trình duyệt */
+    font-family: inherit;
+    font-size: 15px;
+    padding: 4px 0;
+}
+
+/* 5. Giữ cố định kích thước nút gửi hình tròn, không cho bị méo hoặc rớt dòng */
+#send {
+    flex-shrink: 0;        /* Khóa kích thước, không cho nút bị bóp méo */
+    background-color: #ff9500;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#send:hover {
+    background-color: #e08400;
+}
+/* ========================================================
+   THU NGẮN VÀ CĂN GIỮA THANH NHẬP LIỆU (PHONG CÁCH GEMINI)
+   ======================================================== */
+
+/* 1. Cấu hình footer làm khung nền bao ngoài */
+footer {
+    background-color: #ffffff;
+    padding: 15px 20px 25px 20px; /* Tạo khoảng trống vừa vặn với đáy màn hình */
+    display: flex;
+    justify-content: center;     /* QUAN TRỌNG: Đẩy ô nhập liệu vào chính giữa dòng */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 2. Thu ngắn ô nhập liệu inputBox */
+.inputBox {
+    display: flex;
+    align-items: center;
+    background-color: #f0f4f9;
+    border-radius: 28px;
+    padding: 10px 18px;
+    gap: 12px;
+    
+    /* ĐOẠN ĐỔI KÍCH THƯỚC: */
+    width: 100%;
+    max-width: 720px;            /* Chiều rộng tối đa lý tưởng chuẩn phong cách Gemini */
+    
+    box-sizing: border-box;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* Thêm đổ bóng mờ cho thanh nhập nổi bật hơn */
+}
+
+/* 3. Đảm bảo vùng chatArea cũng thu gọn text theo khung 720px để dễ đọc */
+.chatArea > .message {
+    max-width: 720px;            /* Giới hạn tin nhắn không tràn quá độ rộng ô chat */
+}
+
+.message.user {
+    align-self: flex-end;        /* Người dùng lệch phải */
+}
+
+.message.bot {
+    align-self: flex-start;      /* Bot lệch trái nhưng trong phạm vi căn giữa */
+    margin: 0 auto 0 0;          /* Đảm bảo căn lề trái chuẩn trong khung */
+}
+/* ========================================================
+   LÀM ĐẸP PHẦN TRẢ LỜI CỦA BOT VỚI TÔNG VÀNG 50 (KEM NHẠT)
+   ======================================================== */
+
+/* Bong bóng chat của Bot: Nền vàng 50 nhạt, bo góc mềm mại */
+.message.bot {
+    background-color: #fef9e7; /* Màu vàng 50 (Kem/Mỡ gà nhạt) tạo nền cực sang và dịu mắt */
+    color: #2d2d2d;            /* Màu chữ xám đen đậm để đọc rõ ràng */
+    align-self: flex-start;
+    max-width: 82%;            /* Giới hạn chiều rộng vừa vặn, không bị tràn lề */
+    padding: 16px 20px;        /* Tạo khoảng cách đệm rộng rãi bên trong */
+    border-radius: 4px 18px 18px 18px; /* Bo góc tròn, góc trên bên trái vuông để định hướng vế nói */
+    box-shadow: 0 2px 8px rgba(255, 149, 0, 0.05); /* Đổ bóng màu cam mặt trời siêu mờ */
+    line-height: 1.6;          /* Giúp các dòng văn bản giãn cách thoáng đạt */
+    font-size: 15px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+}
+
+/* Định dạng các đoạn văn (p) và danh sách bên trong câu trả lời của Bot */
+.message.bot p {
+    margin-bottom: 10px;
+}
+.message.bot p:last-child {
+    margin-bottom: 0;
+}
+.message.bot ul, .message.bot ol {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+.message.bot li {
+    margin-bottom: 4px;
+}
+
+/* KHỐI CHỨA CODE (PRE) & ĐOẠN CODE (CODE) CỦA BOT */
+/* Làm cho các đoạn mã lập trình hiển thị chuyên nghiệp như các editor */
+.message.bot pre {
+    background-color: #1e1e1e !important; /* Ép nền khối code thành màu đen tối hẳn để nổi bật cú pháp */
+    border-left: 4px solid #ff9500;       /* Thêm thanh viền màu cam mặt trời làm điểm nhấn bên trái */
+    border-radius: 8px;
+    padding: 14px;
+    margin: 12px 0;
+    overflow-x: auto;                     /* Nếu code dài quá tự sinh thanh cuộn ngang trong ô code */
+}
+
+/* Font chữ chuyên cho lập trình bên trong khối mã */
+.message.bot pre code {
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    font-size: 14px;
+    background: transparent !important;   /* Loại bỏ nền thừa */
+    padding: 0;
+}
+
+/* Định dạng cho những từ code ngắn nằm xen kẽ giữa dòng văn bản (Inline Code) */
+.message.bot :not(pre) > code {
+    background-color: #f3ebcd;            /* Màu vàng đậm hơn một chút để làm nổi từ khóa */
+    color: #bf4f00;                       /* Chữ màu cam đậm nổi bật */
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 14px;
+}
+/* ========================================================
+   CẤU HÌNH GIAO DIỆN TỐI (DARK THEME)
+   ======================================================== */
+
+/* Khi body có class .dark-theme, các phần tử con sẽ tự động đổi màu */
+body.dark-theme .app,
+body.dark-theme .sidebar,
+body.dark-theme .topBar,
+body.dark-theme .main,
+body.dark-theme footer {
+    background-color: #131314; /* Màu nền tối sâu chuẩn Gemini Dark */
+    color: #e3e3e3;            /* Chữ chuyển sang màu trắng sáng */
+}
+
+body.dark-theme .sidebar {
+    border-right: 1px solid #282829;
+}
+
+body.dark-theme .topBar {
+    border-bottom: 1px solid #282829;
+}
+
+/* Nút Cuộc trò chuyện mới ở chế độ tối */
+body.dark-theme #newChat {
+    background-color: #1a1a1c;
+    color: #e3e3e3;
+    border: 1px solid #444746;
+}
+body.dark-theme #newChat:hover {
+    background-color: #28292a;
+}
+
+/* Ô nhập liệu ở chế độ tối */
+body.dark-theme .inputBox {
+    background-color: #1e1e20;
+}
+body.dark-theme .inputBox textarea {
+    color: #e3e3e3;
+}
+
+/* Sửa lại bong bóng chat của Bot và User trong chế độ tối cho dễ nhìn */
+body.dark-theme .message.user {
+    background-color: #2b2a33;
+    color: #e3e3e3;
+}
+
+body.dark-theme .message.bot {
+    background-color: #2a220f; /* Vàng đen tối, dịu mắt ban đêm */
+    color: #f5f5f5;
+    box-shadow: none;
+}
+
+body.dark-theme .message.bot :not(pre) > code {
+    background-color: #423513;
+    color: #ffb042;
+}
+/* ========================================================
+   CƯỠNG CHẾ TOÀN DIỆN GIAO DIỆN TỐI (XỬ LÝ TRIỆT ĐỂ LỖI VẪN SÁNG)
+   ======================================================== */
+
+/* Ép tất cả các thẻ nền cơ bản và vùng chứa của ứng dụng về màu tối */
+body.dark-theme, 
+body.dark-theme html,
+body.dark-theme .app, 
+body.dark-theme .sidebar, 
+body.dark-theme .main,
+body.dark-theme .topBar,
+body.dark-theme .chatArea,
+body.dark-theme header,
+body.dark-theme footer {
+    background: #131314 !important;
+    background-color: #131314 !important;
+    color: #e3e3e3 !important;
+}
+
+/* Ép khung hộp nhập liệu và các phần tử bên trong về màu tối */
+body.dark-theme .inputBox,
+body.dark-theme .inputBox textarea {
+    background: #1e1e20 !important;
+    background-color: #1e1e20 !important;
+    color: #e3e3e3 !important;
+}
+
+/* Sửa bong bóng tin nhắn của BOT (AI) trong chế độ tối */
+body.dark-theme .message.bot {
+    background: #241f13 !important;
+    background-color: #241f13 !important;
+    color: #f5f5f5 !important;
+}
+
+/* Sửa bong bóng tin nhắn của USER (Người dùng) trong chế độ tối */
+body.dark-theme .message.user {
+    background: #2b2a33 !important;
+    background-color: #2b2a33 !important;
+    color: #e3e3e3 !important;
+}
+
+/* Đổi màu chữ mô tả của màn hình chào mừng sang màu xám mờ đỡ chói */
+body.dark-theme header p,
+body.dark-theme .logo-text,
+body.dark-theme .modelName {
+    color: #aaaaaa !important;
+}
+/* ========================================================
+   SỬA LỖI HAI VỆT TRẮNG HAI BÊN KHI BẬT GIAO DIỆN TỐI
+   ======================================================== */
+
+/* Ép toàn bộ nền trình duyệt và khung ứng dụng không được để lộ màu trắng */
+body.dark-theme,
+body.dark-theme html {
+    background-color: #131314 !important;
+}
+
+/* Kéo giãn khung app khít 100% màn hình, loại bỏ lề thừa màu trắng */
+body.dark-theme .app {
+    background-color: #131314 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+/* Đảm bảo vùng Main bên phải phủ kín không gian và có nền tối */
+body.dark-theme .main {
+    background-color: #131314 !important;
+    flex: 1 !important;
+    width: 100% !important;
+}
+
+/* Đảm bảo vùng chứa chat cũng phủ kín nền tối, không tạo khoảng trống trắng */
+body.dark-theme .chatArea {
+    background-color: #131314 !important;
+    width: 100% !important;
+    box-sizing: border-box;
+}
+/* ========================================================
+   CĂN GIỮA MÀN HÌNH CHÀO MỪNG KHI BẮT ĐẦU (STYLE GEMINI)
+   ======================================================== */
+
+/* 1. Biến vùng Main thành một khung chứa linh hoạt */
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between; /* Đẩy các phần tử giãn cách đều nhau */
+    overflow: hidden;
+}
+
+/* 2. Cấu hình phần Header chào mừng nằm chính giữa vùng trống */
+header {
+    flex: 1;                     /* Tự động chiếm trọn khoảng không gian giữa */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;     /* Căn giữa nội dung theo chiều dọc */
+    align-items: center;         /* Căn giữa nội dung theo chiều ngang */
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 0.5s ease; /* Hiệu ứng hiện hình mượt mà */
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+header p {
+    font-size: 1.2rem;
+    max-width: 600px;            /* Giới hạn độ rộng văn bản chào mừng */
+    color: #444746;
+}
+
+/* Chỉnh màu chữ mô tả ở chế độ tối */
+body.dark-theme header p {
+    color: #c4c7c5 !important;
+}
+
+/* 3. Đảm bảo vùng ChatArea chỉ xuất hiện khi có tin nhắn và co giãn hợp lý */
+.chatArea {
+    width: 100%;
+    max-width: 720px;            /* Khớp với độ rộng thanh nhập liệu */
+    margin: 0 auto;              /* Căn giữa khung hiển thị tin nhắn */
+    box-sizing: border-box;
+}
+
+/* Hiệu ứng mượt mà khi hiện chữ */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* ========================================================
+   GOM LỜI CHÀO VÀ THANH CHAT VÀO GIỮA MÀN HÌNH (STYLE GEMINI)
+   ======================================================== */
+
+/* 1. Cấu hình lại khung Main làm trục dọc chính */
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 2. Tạo một vùng chứa đệm ở giữa màn hình khi chưa có tin nhắn */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Căn giữa nội dung theo chiều dọc */
+    align-items: center;      /* Căn giữa nội dung theo chiều ngang */
+    text-align: center;
+    margin-top: auto;         /* Đẩy toàn bộ cụm này xuống giữa màn hình */
+    margin-bottom: 30px;      /* Khoảng cách từ lời chào xuống thanh chat */
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+header p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    color: #444746;
+}
+
+/* 3. ĐỊNH VỊ LẠI THANH CHAT (FOOTER) */
+footer {
+    background-color: transparent !important; /* Xóa nền trắng cố định của footer */
+    padding: 0 20px 30px 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    
+    /* MẸO QUAN TRỌNG: */
+    margin-bottom: auto;      /* Kết hợp với margin-top của header để kẹp cả cụm vào ĐÚNG GIỮA MÀN HÌNH */
+}
+
+/* Khi đã bắt đầu chat (có tin nhắn), JS sẽ ẩn header, ta cần ép footer tự động hạ cánh xuống đáy màn hình */
+.main:not(:has(header[style*="display: none"])) footer {
+    /* Trạng thái ban đầu: kẹp ở giữa */
+}
+
+/* Fix CSS khi header bị ẩn đi (khi đang trong cuộc chat) */
+/* Thêm đoạn này để khi chat, thanh gõ chữ tự động trở về đáy màn hình nhường chỗ cho tin nhắn cuộn */
+.main {
+    justify-content: space-between; 
+}
+/* ========================================================
+   ÉP CỤM LỜI CHÀO VÀ Ô NHẬP LIỆU GOM CHUNG VÀO GIỮA MÀN HÌNH
+   ======================================================== */
+
+/* 1. Reset lại khung Main để làm chuẩn gốc tọa độ */
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative; /* Giữ cố định gốc tọa độ cho các phần tử con */
+}
+
+/* 2. Tạo một khối bọc gom cả Lời chào + Ô nhập liệu khi chưa chat */
+/* Ta lợi dụng trạng thái ban đầu khi Header còn hiển thị */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    /* Đẩy toàn bộ khu vực header lên chính giữa màn hình */
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 720px; /* Giới hạn độ rộng bằng ô gõ chữ */
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 40px; /* Tạo khoảng cách vừa đủ để đặt ô chat ngay bên dưới */
+    color: #444746;
+}
+
+/* 3. ĐỊNH VỊ THANH CHAT (FOOTER) CHẠY THEO HEADER */
+footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color: transparent !important;
+    
+    /* Vị trí mặc định ban đầu: Nằm cố định ngay dưới đoạn văn chào mừng */
+    position: absolute;
+    top: calc(45% + 100px); /* Tự động tính toán để neo ngay dưới chữ */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    transition: all 0.3s ease; /* Tạo hiệu ứng mượt mà khi di chuyển */
+}
+
+/* 4. TRẠNG THÁI KHI ĐÃ CHAT (Header bị JavaScript ẩn đi bằng display: none) */
+/* Khi header biến mất, ta ép footer nhả vị trí absolute ra để tự động hạ cánh về đáy màn hình nhường chỗ cho tin nhắn */
+.main:not(:has(header:not([style*="display: none"]))) footer,
+.main:has(header[style*="display: none"]) footer {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin-top: auto !important; /* Đẩy về đáy */
+    padding-bottom: 25px;
+    background-color: #ffffff !important; /* Trả lại nền trắng (hoặc tối) khi chat */
+}
+
+/* Trả lại nền tối cho footer khi ở chế độ Dark Mode lúc đang chat */
+body.dark-theme .main:has(header[style*="display: none"]) footer {
+    background-color: #131314 !important;
+}
+/* ========================================================
+   LOGIC THU PHÓNG SIDEBAR THEO NÚT MENU 3 GẠCH
+   ======================================================== */
+
+/* Hiệu ứng chuyển động mượt mà cho sidebar */
+.sidebar {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 260px; /* Chiều rộng mặc định ban đầu */
+}
+
+/* Khi sidebar có class .collapsed (bị thu nhỏ), ép chiều rộng về 0 */
+.sidebar.collapsed {
+    width: 0px !important;
+    min-width: 0px !important;
+    padding: 0px !important;
+    overflow: hidden; /* Ẩn toàn bộ chữ và nút bên trong đi */
+    border-right: none !important;
+}
+
+/* Đảm bảo vùng chính tự động giãn ra chiếm nốt chỗ trống */
+.main {
+    flex: 1;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Làm đẹp riêng cho nút menu 3 gạch */
+#menuBtn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+#menuBtn:hover {
+    background-color: #e9eef6; /* Hiệu ứng hover tròn nhẹ giống Google */
+}
+
+body.dark-theme #menuBtn:hover {
+    background-color: #28292a;
+}
+/* ========================================================
+   CẤU HÌNH ICON MẶT TRỜI ☀ CHO LOGO SUNAI
+   ======================================================== */
+
+/* Khung chứa cụm logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;       /* Khoảng cách giữa mặt trời và chữ SunAI */
+    padding: 15px;
+}
+
+/* Định dạng riêng cho icon mặt trời ☀ */
+.sun-icon {
+    font-size: 32px; /* Kích thước icon to rõ ràng */
+    color: #ff9500;  /* Màu vàng cam mặt trời đặc trưng */
+    display: inline-block;
+    line-height: 1;
+    
+    /* Tạo hiệu ứng tỏa hào quang nhẹ đổ bóng */
+    text-shadow: 0 0 12px rgba(255, 149, 0, 0.6); 
+    
+    /* Hiệu ứng xoay nhẹ nếu muốn sống động (Tùy chọn, có thể bỏ) */
+    animation: sunPulse 3s infinite alternate;
+}
+
+/* Định dạng chữ SunAI đi kèm */
+.logo-text {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff9500; /* Hoặc đổi thành #1f1f1f tùy theo sở thích của bạn */
+}
+
+/* Đồng bộ màu chữ SunAI sang xám sáng ở chế độ tối */
+body.dark-theme .logo-text {
+    color: #e3e3e3 !important;
+}
+
+/* Hiệu ứng đập nhịp tỏa sáng nhẹ cho mặt trời */
+@keyframes sunPulse {
+    from { transform: scale(1); text-shadow: 0 0 8px rgba(255, 149, 0, 0.5); }
+    to { transform: scale(1.05); text-shadow: 0 0 16px rgba(255, 149, 0, 0.8); }
+}
+/* ========================================================
+   XÓA TRIỆT ĐỂ HÌNH TRÒN CŨ KHÔNG CHO HIỂN THỊ
+   ======================================================== */
+
+/* Nếu trước đây bạn dùng pseudo-element (::before hoặc ::after) để vẽ hình tròn, lệnh này sẽ xóa sổ nó */
+.logo::before, 
+.logo::after,
+.logo-container::before,
+.logo-container::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* Nếu trước đây cái hình tròn đó là một file ảnh (img), lệnh này sẽ ẩn nó đi */
+.logo-container img, 
+.logo img {
+    display: none !important;
+}
+
+/* Đảm bảo khung chứa logo chỉ hiển thị đúng mặt trời ☀ và chữ SunAI mới */
+.logo-container {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    background: transparent !important; /* Xóa mọi màu nền tròn cũ nếu có */
+    border-radius: 0 !important;        /* Xóa bo tròn cũ */
+    width: auto !important;
+    height: auto !important;
+}
+/* ========================================================
+   XÓA BỎ HOÀN TOÀN LOGO ICON (CHỈ GIỮ LẠI CHỮ SUNAI)
+   ======================================================== */
+
+/* Ẩn hoàn toàn icon mặt trời mới */
+.sun-icon {
+    display: none !important;
+}
+
+/* Khóa và triệt tiêu tận gốc hình tròn cũ (nếu còn sót trong cache) */
+.logo::before, 
+.logo::after,
+.logo-container::before,
+.logo-container::after,
+.logo-container img,
+.logo img {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+}
+
+/* Căn chỉnh lại chữ SunAI cho đẹp khi đứng một mình */
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding-left: 5px; /* Tạo khoảng cách nhỏ với lề trái */
+}
+/* ========================================================
+   LỆNH ĐIỀU KHIỂN ICON MẶT TRỜI MỚI THAY THẾ TOÀN BỘ LOGO CŨ
+   ======================================================== */
+
+.sun-logo {
+    font-size: 42px;         /* Độ to nhỏ của icon mặt trời */
+    color: #ff9500;          /* Màu cam vàng rực rỡ */
+    text-align: center;      /* Căn giữa icon */
+    padding: 20px 0;         /* Tạo khoảng cách đệm trên dưới trong sidebar */
+    display: block !important;
+    line-height: 1;
+    cursor: pointer;
+    
+    /* Hiệu ứng tỏa bóng sáng dịu mắt của mặt trời */
+    text-shadow: 0 0 15px rgba(255, 149, 0, 0.7);
+}
+
+/* Vô hiệu hóa và xóa bỏ hoàn toàn tất cả các class logo cũ nếu trình duyệt còn lưu cache */
+.logo, 
+.logo-container, 
+.logo-text, 
+.sun-icon,
+.logo::before,
+.logo::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+}
+/* ========================================================
+   GIAO DIỆN LOGO MỚI: CHỮ SUNAI + ICON MẶT TRỜI PHÍA SAU
+   ======================================================== */
+
+.sun-brand {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important; /* Đẩy sát lề trái sidebar */
+    gap: 8px !important;                    /* Khoảng cách giữa chữ và icon */
+    padding: 20px 15px !important;
+    background: transparent !important;     /* Xóa bỏ hoàn toàn nền màu nếu có */
+    border-radius: 0 !important;
+}
+
+/* Định dạng chữ SunAI mới */
+.brand-text {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #ff9500 !important;              /* Màu cam vàng đồng bộ */
+    letter-spacing: 0.5px !important;
+}
+
+/* Định dạng icon mặt trời mới nằm phía sau */
+.brand-icon {
+    font-size: 26px !important;
+    color: #ff9500 !important;
+    display: inline-block !important;
+    line-height: 1 !important;
+    text-shadow: 0 0 10px rgba(255, 149, 0, 0.6); /* Tạo độ tỏa sáng nhẹ */
+}
+
+/* Đồng bộ màu chữ SunAI sang màu trắng sáng khi bạn bật Dark Mode */
+body.dark-theme .brand-text {
+    color: #f3f3f3 !important;
+}
+
+/* KHÓA CHẾ ĐỘ HIỂN THỊ CỦA TẤT CẢ CÁC LỆNH LOGO CŨ */
+.logo, 
+.logo-container, 
+.logo-text, 
+.sun-icon,
+.logo::before,
+.logo::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+}
+/* ========================================================
+   SỬA LỖI HIỂN THỊ NÚT GIAO DIỆN TỐI (#themeBtn)
+   ======================================================== */
+
+#themeBtn {
+    background-color: transparent !important; /* Xóa màu nền xám mặc định */
+    border: 1px solid #e3e3e3 !important;     /* Tạo viền mảnh tinh tế */
+    color: #444746 !important;                /* Màu chữ xám đậm */
+    padding: 12px 20px !important;            /* Tạo khoảng trống bên trong nút */
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    border-radius: 8px !important;            /* Bo góc cho mượt mà */
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: calc(100% - 30px) !important;      /* Tự co giãn theo chiều rộng sidebar */
+    margin: 0 auto 20px auto !important;      /* Căn giữa nút và tạo khoảng cách với đáy */
+    transition: background-color 0.2s, border-color 0.2s !important;
+}
+
+/* Hiệu ứng khi di chuột (hover) vào nút */
+#themeBtn:hover {
+    background-color: #f0f4f9 !important;
+    border-color: #c2e7ff !important;
+}
+
+/* Cấu hình lại Sidebar để đẩy nút Theme xuống đáy */
+.sidebar {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important; /* Đẩy logo/nút chat lên trên, nút theme xuống đáy */
+    height: 100vh !important;
+    box-sizing: border-box !important;
+}
+
+/* Gom nhóm các phần tử phía trên lại để không bị giãn ra */
+.sun-brand, #newChat, .sidebar-content {
+    width: 100% !important;
+}
+
+.sidebar-content {
+    flex: 1 !important; /* Chiếm không gian ở giữa để đẩy nút dưới cùng xuống */
+    overflow-y: auto !important;
+}
+
+/* ĐỔI GIAO DIỆN NÚT KHI Ở CHẾ ĐỘ DARK MODE */
+body.dark-theme #themeBtn {
+    border-color: #444746 !important;
+    color: #e3e3e3 !important;
+}
+
+body.dark-theme #themeBtn:hover {
+    background-color: #28292a !important;
+    border-color: #555657 !important;
+}
+/* ========================================================
+   XÓA BỎ LỆNH CŨ - THIẾT LẬP MỚI TOÀN BỘ CHO NÚT NEW CHAT
+   ======================================================== */
+
+/* 1. Ép Sidebar tính toán lại kích thước chuẩn và không cho tràn */
+.sidebar {
+    width: 250px !important;
+    min-width: 250px !important;
+    max-width: 250px !important;
+    padding: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* 2. Đè bẹp hoàn toàn nút cũ và ép thu nhỏ tuyệt đối */
+.sidebar button, 
+.sidebar #newChat, 
+aside.sidebar button#newChat {
+    /* Ép kích thước siêu nhỏ */
+    width: 150px !important;            
+    min-width: 150px !important;
+    max-width: 150px !important;
+    height: 34px !important;            
+    
+    /* Căn giữa nút vào chính giữa Sidebar */
+    margin: 15px auto !important;       
+    padding: 0 8px !important;          
+    
+    /* Cấu hình chữ bên trong */
+    font-size: 15px !important;         
+    font-weight: 600 !important;
+    white-space: nowrap !important;     
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    
+    /* Giao diện nút */
+    background-color: #ff9500 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s !important;
+}
+
+/* 3. Hiệu ứng di chuột riêng cho nút mới nhỏ gọn */
+.sidebar #newChat:hover,
+aside.sidebar button#newChat:hover {
+    background-color: #e08400 !important;
+}
+/* ========================================================
+   CẤU HÌNH ĐỒNG BỘ 2 NÚT: NEW CHAT & XÓA LỊCH SỬ (THU NHỎ CHỐNG LẤP)
+   ======================================================== */
+
+/* Đảm bảo Sidebar tính toán kích thước chuẩn, không cho phép tràn ngang */
+.sidebar {
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+}
+
+/* Ép cấu hình thu nhỏ cho cả 2 nút bấm */
+.sidebar button#newChat,
+.sidebar button#clearChatBtn {
+    width: 150px !important;            /* Chiều rộng thu nhỏ lọt thỏm giữa lề */
+    min-width: 150px !important;
+    max-width: 150px !important;
+    height: 34px !important;            /* Chiều cao gọn gàng, vừa vặn */
+    margin: 8px auto !important;        /* Căn giữa nút vào giữa Sidebar và tạo khoảng cách trên/dưới */
+    padding: 0 10px !important;         /* Khoảng đệm chữ bên trong */
+    
+    /* Định dạng chữ font chữ */
+    font-size: 15px !important;         /* Chữ nhỏ gọn, không sợ bị lấp */
+    font-weight: 600 !important;
+    white-space: nowrap !important;     /* Giữ chữ trên một hàng, tuyệt đối không cho vỡ dòng */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important; /* Căn icon và chữ ra chính giữa nút */
+    gap: 6px !important;                /* Khoảng cách giữa icon và chữ */
+    
+    /* Giao diện màu Cam thương hiệu */
+    background-color: #ff9500 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 6px !important;     /* Bo góc nhẹ nhàng hiện đại */
+    cursor: pointer !important;
+    transition: background-color 0.2s, opacity 0.2s !important;
+}
+
+/* Nút xóa lịch sử: làm mờ nhẹ (opacity 0.85) để ưu tiên thị giác cho nút New Chat */
+.sidebar button#clearChatBtn {
+    background-color: #ff9500 !important;
+    opacity: 0.85 !important;
+}
+
+/* --------------------------------------------------------
+   HIỆU ỨNG DI CHUỘT (HOVER) CHO TỪNG NÚT
+   -------------------------------------------------------- */
+
+/* Khi di chuột vào New Chat -> Cam đậm hơn */
+.sidebar button#newChat:hover {
+    background-color: #e08400 !important;
+}
+
+/* Khi di chuột vào Xóa lịch sử -> Chuyển sang màu Đỏ cảnh báo và sáng rõ 100% */
+.sidebar button#clearChatBtn:hover {
+    background-color: #d63031 !important; 
+    opacity: 1 !important;
+}
+
+/* Hiệu ứng lún nút nhẹ khi click chuột bấm vào */
+.sidebar button#newChat:active,
+.sidebar button#clearChatBtn:active {
+    transform: scale(0.97) !important;
+}
+/* ========================================================
+   XÓA BỎ LOGO CŨ - TẠO MỚI LOGO SUNAI TO RÕ VÀ CÂN ĐỐI
+   ======================================================== */
+
+/* 1. Ẩn triệt để tất cả các thẻ logo cũ để tránh xung đột layout */
+.sidebar header,
+.sidebar .logo-container,
+.sidebar-header,
+.sidebar h1 {
+    display: none !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* 2. Đảm bảo khung gầm Sidebar căn mọi thứ vào chính giữa */
+.sidebar {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;       /* Ép mọi thứ (logo, nút) thẳng một hàng dọc chính giữa */
+    padding: 20px 15px !important;
+}
+
+/* 3. Thiết kế Logo mới: To hơn, cân đối tuyệt đối */
+.sidebar .sunai-logo-new {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;  /* Căn giữa chữ theo chiều ngang */
+    align-items: center !important;     /* Căn giữa icon mặt trời theo chiều dọc với chữ */
+    gap: 10px !important;                /* Khoảng cách vừa vặn giữa chữ và mặt trời */
+    margin: 10px 0 25px 0 !important;    /* Tạo khoảng cách thông thoáng với nút bên dưới */
+    
+    /* Phong cách chữ */
+    font-family: sans-serif !important;  /* Hoặc font hệ thống của bạn */
+    font-size: 28px !important;          /* Tăng size chữ to rõ, nổi bật */
+    font-weight: 700 !important;          /* Chữ đậm đà sắc nét */
+    color: #ff9500 !important;           /* Tông màu cam vàng SunAI thương hiệu */
+    white-space: nowrap !important;      /* Khóa chữ, không cho vỡ hàng */
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.05) !important;
+}
+
+/* Kích thước riêng cho icon mặt trời của logo mới */
+.sidebar .sunai-logo-new span {
+    font-size: 28px !important;          /* Icon to bằng chữ */
+    display: inline-block !important;
+    animation: pulse 3s infinite ease-in-out; /* Hiệu ứng đập nhẹ cho sinh động (tùy chọn) */
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+/* ========================================================
+   ÉP CỤM NÚT DI CHUYỂN LÊN SÁT LOGO, KHÔNG CHO TRÔI XUỐNG DƯỚI
+   ======================================================== */
+
+/* 1. Sửa lại khung chứa Sidebar để gom các phần tử lên trên đầu */
+.sidebar {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important; /* Ép mọi thứ xếp từ trên đỉnh xếp xuống */
+    align-items: center !important;
+    gap: 0 !important;                      /* Xóa khoảng cách tự động giữa các khối lớn */
+    padding: 15px !important;
+    box-sizing: border-box !important;
+}
+
+/* 2. Kiểm soát khoảng cách của Logo mới */
+.sidebar .sunai-logo-new {
+    margin-top: 5px !important;
+    margin-bottom: 15px !important;        /* Chỉ cho phép cách cụm nút bên dưới 15px */
+}
+
+/* 3. Đảm bảo hai nút bấm ôm sát nhau và nằm ngay dưới logo */
+.sidebar button#newChat {
+    margin-top: 0 !important;              /* Nút đầu tiên sát vào logo */
+    margin-bottom: 8px !important;         /* Cách nút Xóa lịch sử 8px */
+}
+
+.sidebar button#clearChatBtn {
+    margin-top: 0 !important;
+    margin-bottom: 15px !important;
+}
+/* ========================================================
+   KHÔI PHỤC VÀ ĐỊNH VỊ LẠI NÚT GIAO DIỆN SÁNG TỐI DƯỚI ĐÁY
+   ======================================================== */
+
+/* Đảm bảo khung chứa danh sách chat (nếu có) co giãn để đẩy nút theme xuống đáy */
+.sidebar .chat-list, 
+.sidebar .history-container {
+    flex-grow: 1 !important; 
+}
+
+/* Định vị nút giao diện tối luôn nằm ở đáy và căn giữa trục */
+.sidebar button#themeBtn, 
+#themeBtn {
+    margin-top: auto !important;        /* Ép nút nhảy xuống vị trí dưới cùng của Sidebar */
+    margin-bottom: 10px !important;     /* Cách mép đáy một khoảng vừa vặn */
+    margin-left: auto !important;       /* Cùng với margin-right để căn giữa nút */
+    margin-right: auto !important;
+    
+    /* Giữ nguyên kích thước đồng bộ 160px như cụm nút trên */
+    width: 160px !important;            
+    min-width: 160px !important;
+    max-width: 160px !important;
+    height: 36px !important;            
+    padding: 0 10px !important;         
+    font-size: 15px !important;         
+    font-weight: 600 !important;
+    white-space: nowrap !important;     
+    
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important; 
+    gap: 6px !important;                
+    border: 1px solid #ddd !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    
+    /* Màu sắc mặc định ở giao diện sáng */
+    background-color: #f0f0f0 !important; 
+    color: #333333 !important;
+}
+
+/* Đảm bảo hiển thị đúng màu khi bật Giao diện tối */
+body.dark-theme .sidebar button#themeBtn,
+body.dark-theme #themeBtn {
+    background-color: #2b2c2d !important;
+    color: #ffffff !important;
+    border: 1px solid #444 !important;
+}
+/* ========================================================
+   ÉP NÚT GIAO DIỆN SÁNG TỐI PHẢI HIỂN THỊ DƯỚI ĐÁY SIDEBAR
+   ======================================================== */
+
+/* 1. Kích hoạt gốc tọa độ cho Sidebar */
+.sidebar {
+    position: relative !important; /* Tạo điểm neo cho nút dưới đáy */
+    padding-bottom: 70px !important; /* Chừa một khoảng trống 70px dưới đáy để không bị đè lên chữ */
+}
+
+/* 2. Ép nút nhảy về đáy Sidebar bằng tọa độ tuyệt đối */
+.sidebar button#themeBtn, 
+#themeBtn,
+.sidebar .theme-toggle {
+    position: absolute !important;
+    bottom: 20px !important;            /* Cách mép đáy Sidebar đúng 20px */
+    left: 50% !important;               /* Căn giữa theo chiều ngang */
+    transform: translateX(-50%) !important; /* Giúp nút cân đối chính giữa trục */
+    
+    /* Giữ nguyên kích thước đồng bộ 160px với cụm nút trên */
+    width: 160px !important;            
+    min-width: 160px !important;
+    max-width: 160px !important;
+    height: 36px !important;            
+    padding: 0 10px !important;         
+    font-size: 11.5px !important;         
+    font-weight: 600 !important;
+    white-space: nowrap !important;     
+    
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important; 
+    gap: 6px !important;                
+    border: 1px solid #ddd !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    z-index: 999 !important;            /* Đảm bảo nút luôn nổi lên trên cùng, không bị che khuất */
+    
+    /* Màu nền mặc định (Giao diện sáng) */
+    background-color: #f0f0f0 !important; 
+    color: #333333 !important;
+}
+
+/* 3. Màu nền khi chuyển sang Giao diện tối */
+body.dark-theme .sidebar button#themeBtn,
+body.dark-theme #themeBtn,
+body.dark-theme .theme-toggle {
+    background-color: #2b2c2d !important;
+    color: #ffffff !important;
+    border: 1px solid #444 !important;
+}
+/* ========================================================
+   CẤU HÌNH VÀ HIỂN THỊ NÚT GIAO DIỆN SÁNG / TỐI DƯỚI ĐÁY SIDEBAR
+   ======================================================== */
+
+/* Đảm bảo Sidebar có điểm neo để giữ nút ở đáy */
+.sidebar {
+    position: relative !important;
+    padding-bottom: 70px !important; /* Tạo khoảng trống ở đáy để không bị đè lên các thành phần khác */
+}
+
+/* Ép nút Giao diện tối xuống đáy và căn giữa chính xác */
+.sidebar button#themeBtn, 
+#themeBtn {
+    position: absolute !important;
+    bottom: 20px !important;             /* Cách mép đáy Sidebar 20px */
+    left: 50% !important;                /* Căn giữa trục ngang */
+    transform: translateX(-50%) !important; /* Đảm bảo nút cân đối 100% */
+    
+    /* Đồng bộ kích thước gọn gàng bằng với cụm nút trên */
+    width: 160px !important;            
+    min-width: 160px !important;
+    max-width: 160px !important;
+    height: 36px !important;            
+    padding: 0 10px !important;         
+    
+    /* Định dạng chữ */
+    font-size: 15px !important;         
+    font-weight: 600 !important;
+    white-space: nowrap !important;     
+    
+    /* Giao diện Flexbox căn giữa chữ và icon bên trong */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important; 
+    gap: 6px !important;                
+    
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    z-index: 999 !important;             /* Luôn nổi lên trên cùng */
+    transition: all 0.2s ease !important;
+    
+    /* Màu sắc khi ở giao diện SÁNG */
+    background-color: #f0f0f0 !important; 
+    color: #333333 !important;
+    border: 1px solid #dddddd !important;
+}
+
+/* Hiệu ứng khi di chuột vào nút (Hover) */
+.sidebar button#themeBtn:hover, 
+#themeBtn:hover {
+    background-color: #e5e5e5 !important;
+}
+
+/* Màu sắc tự động chuyển đổi khi kích hoạt chế độ TỐI (Dark Mode) */
+body.dark-theme .sidebar button#themeBtn,
+body.dark-theme #themeBtn {
+    background-color: #2b2c2d !important;
+    color: #ffffff !important;
+    border: 1px solid #444444 !important;
+}
+
+body.dark-theme .sidebar button#themeBtn:hover,
+body.dark-theme #themeBtn:hover {
+    background-color: #3a3b3c !important;
+}

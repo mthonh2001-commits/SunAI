@@ -15,7 +15,7 @@ const sidebar = document.querySelector(".sidebar");
 /* =========================
    CONFIG GOOGLE GEMINI API
 ========================= */
-const API_KEY = "AQ.Ab8RN6Lo3wL-7nJDS9g9W4eH5jNhm3Abs1FWKRywoqZXEBL42Q"; // 🔑 Điền lại API Key thật của bạn vào đây
+const API_KEY = "AQ.Ab8RN6J4o9V8WDj02DnytRhF2b_D7Dih8wo9kIG7QplBfe8-tQ"; // 🔑 Điền lại API Key thật của bạn vào đây
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
 /* =========================
